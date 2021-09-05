@@ -11,13 +11,13 @@ import java.util.Date;
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false)
+    //@Column(updatable = false)
     private Long id;
     @NotBlank(message = "Project Name Should not be blank")
     private String projectName;
     @NotBlank(message = "Project Identifier Should not be blank")
     @Size(min = 4, max = 5, message = "Project Identifier should be between 4 - 5 Characters")
-    @Column(updatable = false, unique = true)
+    //@Column(updatable = false, unique = true)
     private String projectIdentifier;
     @NotBlank(message = "Description should not be blank")
     private String description;
