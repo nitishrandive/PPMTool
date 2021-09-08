@@ -1,12 +1,15 @@
 package com.ndroid.ppmtool.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Date;
-
+@Getter
+@Setter
 @Entity
 public class Project {
     @Id
@@ -32,7 +35,7 @@ public class Project {
     public Project() {
     }
 
-    public Long getId() {
+    /*public Long getId() {
         return id;
     }
 
@@ -95,7 +98,7 @@ public class Project {
     public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
     }
-
+*/
     @PrePersist
     private void onCreate() {
         this.created_at = new Date();
