@@ -1,5 +1,6 @@
 package com.ndroid.ppmtool.services;
 
+import com.ndroid.ppmtool.domain.Backlog;
 import com.ndroid.ppmtool.domain.Project;
 import com.ndroid.ppmtool.exceptions.ProjectIdException;
 import com.ndroid.ppmtool.repositories.ProjectRepository;
@@ -19,6 +20,10 @@ public class ProjectService {
 
         try {
             project.setProjectIdentifier(project.getProjectIdentifier().toUpperCase());
+            Backlog backlog = new Backlog();
+            backlog.setProject(project);
+            backlog.setProjectIdentifier(project.getProjectIdentifier().toUpperCase());
+            project.setBacklog(backlog);
             return projectRepository.save(project);
         } catch (Exception e) {
             throw new ProjectIdException("Project Id " + project.getProjectName() + " Already Exist");
