@@ -19,10 +19,11 @@ public class ProjectTask {
     private String Summary;
     private String acceptanceCriteria;
     private Integer priority;
+    private String status;
     private Date dueDate;
     private Date created_at;
     private Date updated_at;
-    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "backlog_id",nullable = false,updatable = false)
     @JsonIgnore
     private Backlog backlog;
@@ -110,6 +111,22 @@ public class ProjectTask {
 
     public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public Backlog getBacklog() {
+        return backlog;
+    }
+
+    public void setBacklog(Backlog backlog) {
+        this.backlog = backlog;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override

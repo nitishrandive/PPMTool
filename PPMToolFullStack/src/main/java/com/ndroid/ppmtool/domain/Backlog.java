@@ -23,7 +23,7 @@ public class Backlog {
     private Project project;
     public Backlog() {
     }
-    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "backlog")
+    @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH,mappedBy = "backlog",orphanRemoval = true)
     private List<ProjectTask> projectasks = new ArrayList<>();
     public Long getId() {
         return id;
@@ -54,5 +54,13 @@ public class Backlog {
 
     public Project getProject() {
         return project;
+    }
+
+    public List<ProjectTask> getProjectasks() {
+        return projectasks;
+    }
+
+    public void setProjectasks(List<ProjectTask> projectasks) {
+        this.projectasks = projectasks;
     }
 }
